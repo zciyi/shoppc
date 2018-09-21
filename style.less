@@ -1,0 +1,218 @@
+@charset "utf-8";
+
+html {
+    font-size: 100%;
+    overflow-y: scroll;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    color:#444;
+    font-family:Helvetica, arial, freesans, clean, sans-serif;
+    font-size:13px;
+    line-height:1.5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    padding: 20px 0;
+}
+
+h1 {
+    color: #000000;
+    font-size: 28px;
+}
+
+h2 {
+    border-bottom: 2px solid #CCCCCC;
+    color: #000000;
+    font-size: 24px;
+}
+
+h3 {
+    border-bottom: 2px solid #CCCCCC;
+    font-size: 18px;
+}
+
+h4 {
+    font-size: 16px;
+}
+
+h5 {
+    font-size: 14px;
+}
+
+h6 {
+    color: #777777;
+    background-color: inherit;
+    font-size: 14px;
+}
+
+hr {
+    height: 0.2em;
+    border: 0;
+    color: #CCCCCC;
+    background-color: #CCCCCC;
+}
+
+p, blockquote, ul, ol, dl, table, pre {
+    margin: 15px 0;
+}
+
+p {
+    margin:1em 0;
+}
+
+pre { 
+    background-color: #F8F8F8;    
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    overflow: auto;
+    padding: 10px 15px;
+}
+
+pre code {
+    background-color: #F8F8F8;
+    border: none;    
+    padding: 0;
+}
+
+code {
+    font-family: Consolas, Monaco, Andale Mono, monospace;
+    background-color:#F8F8F8;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    padding: 0 0.2em;
+    line-height: 1;
+}
+
+pre > code {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+pre, code, blockquote { font-size: 12px; }
+
+
+a{ color: #0645ad; text-decoration:none;}
+a:visited{ color: #0b0080; }
+a:hover{ color: #06e; }
+a:active{ color:#faa700; }
+a:focus{ outline: thin dotted; }
+a:hover, a:active{ outline: 0; }
+
+::-moz-selection{background:rgba(255,255,0,0.3);color:#000}
+::selection{background:rgba(255,255,0,0.3);color:#000}
+
+a::-moz-selection{background:rgba(255,255,0,0.3);color:#0645ad}
+a::selection{background:rgba(255,255,0,0.3);color:#0645ad}
+
+blockquote{
+    color:#666666;
+    padding-left: 1.5em;
+    border-left: 0.5em #EEE solid;
+}
+
+ul, ol { margin: 1em 0; padding: 0 0 0 2em; }
+li p:last-child { margin:0 }
+dd { margin: 0 0 0 2em; }
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; max-width:100%;}
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+@media only screen and (min-width: 768px) {
+    body{font-size:14px;}
+}
+body{
+    background: #000;
+    padding: 0;
+    margin: 0;
+
+}
+ul{
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+}
+li{
+    list-style: none;
+}
+.arrow-left(){
+    -webkit-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+    border-top: 1px solid #e8e8e8;
+    border-right: 1px solid #e8e8e8;
+    width: 10px;
+    height: 10px;
+}
+.arrow-right(){
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    border-top: 1px solid #e8e8e8;
+    border-right: 1px solid #e8e8e8;
+    width: 10px;
+    height: 10px;
+}
+.M-menuNav{
+    background: #fff;
+    text-align: center;
+    height: 49px;
+    box-sizing: border-box;
+    ul{
+        display: inline-block;
+        overflow: hidden;
+        li{
+            float: left;
+            line-height: 45px;
+            padding: 0 20px;
+            text-align: center;
+            a{
+                color: #444;
+                cursor: pointer;
+                &:hover{
+                    color:#c00; 
+                }
+                
+            }
+            &.act{
+                border-bottom: 4px solid #c00;
+                box-sizing: border-box;
+                color:#c00;
+                a{
+                    color:#c00;
+                }
+            }
+        }
+    }
+}
+.M-botom{
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    border-top: 1px solid #e8e8e8;
+    color: #fff;
+    &>div{
+        display: inline-block;
+    }
+    &Text{
+        margin: 0 10px ;
+        cursor: pointer;
+        &:hover{
+            color: #c00;
+        }
+    }
+    &Img{
+        width: 30px;
+        height: 30px;
+        margin: 0 10px ;
+        cursor: pointer;
+    }
+}

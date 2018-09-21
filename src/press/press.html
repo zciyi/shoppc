@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1;" />
+    <meta name="renderer" content="webkit">
+    <title>press</title>
+    <link rel="stylesheet" type="text/css" href="../../lib/swiper.min.css?__inline">
+    <link rel="stylesheet" type="text/css" href="../press/press.less?__inline">
+</head>
+<body>
+    <!-- 
+        url("https://www.moncler.cn/cn/files/2018/09/foglia-interna-desktop.jpg")
+ project 
+  列表（参考moncler genius页）
+   详情页 列表（视频或者图片），自动播放第一个视频 
+   配置的文字（黑色或者白色）
+ press 
+  列表（参考moncler genius页）
+   详情页 列表（视频或者图片），自动播放第一个视频
+   配置的文字（黑色或者白色）
+ store
+  列表
+ E-shop 和上次一样
+
+ ABOUT CARSYDA
+  图片列表
+
+每页底部
+ 参考moco
+-->
+    <div class="P-press">
+        <div class="M-menuNav">
+            <ul>
+                <li class="act">
+                    <a>CAMPAIGN</a>
+                </li>
+                <li>
+                    <a>COLLECTION</a>
+                </li>
+                <li>
+                    <a>PROJECT</a>
+                </li>
+                <li>
+                    <a>PRESS</a>
+                </li>
+                <li>
+                    <a>STORE</a>
+                </li>
+                <li>
+                    <a>E-SHOP</a>
+                </li>         
+                <li>
+                    <a>ABOUT CARSYDA</a>
+                </li>
+            </ul>
+        </div>
+        <div class="P-pressFlow" >
+            <div class="P-pressFlowMain" id ="pressFlow">
+                <div class="P-pressFlowCon">
+                    <img src="https://www.moncler.cn/cn/files/2018/08/Box-grande-Puffer-Scratch.jpg" />
+                    <div class="P-pressFlowTitle">1</div>
+                </div>
+                <div class="P-pressFlowCon">
+                    <img src="https://www.moncler.cn/cn/files/2018/09/BOX-PRODOTTO-CN2-donna-1.jpg"/>
+                    <div class="P-pressFlowTitle">2</div>
+                </div>
+                <div class="P-pressFlowCon">
+                    <img src="https://www.moncler.cn/cn/files/2018/08/Box-grande-Puffer-Scratch.jpg" />
+                    <div class="P-pressFlowTitle">1</div>
+                </div>
+                <div class="P-pressFlowCon">
+                    <img src="https://www.moncler.cn/cn/files/2018/09/BOX-PRODOTTO-CN2-donna-1.jpg"/>
+                    <div class="P-pressFlowTitle">2</div>
+                </div>
+
+            </div>
+        </div>
+        <div class="M-botom">
+            <div class="M-botomText">点我</div>
+            <div class="M-botomText"> 点我</div>
+            <div class="M-botomImg"><img src="https://www.moncler.cn/cn/files/2018/09/BOX-PRODOTTO-CN2-donna-1.jpg" /></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    window.onload=function(){
+        waterFall('pressFlow', 'P-pressFlowCon')
+    }
+    function waterFall(main, box) {  
+        var main = document.getElementById(main);  
+        var boxs = main.getElementsByClassName(box);  
+        var boxWidth = boxs[0].offsetWidth; //获取每个数据块的宽度
+        var mainWidh = main.offsetWidth; //获取主容器的宽度
+        var cols = Math.floor(mainWidh / boxWidth); //计算列数
+    
+        var heightArr = []; //定义一个存放 top 值的数组
+        for(var i = 0; i < boxs.length; i++) {    
+            var boxHeight = boxs[i].offsetHeight;
+                  
+            if(i < cols) { //第一行  
+                heightArr.push(boxs[i].offsetHeight);     
+                boxs[i].style.top = '0px'; 
+                boxs[i].style.left = i * boxWidth +'px';
+            } else {        //求出最矮盒子的高度
+                var minBoxHeight = Math.min.apply(this, heightArr); 
+                //求出最矮盒子的索引 
+                var minBoxIndex = getIndex(minBoxHeight, heightArr); 
+                boxs[i].style.top = minBoxHeight + 'px'; //顶部间距即最矮盒子的高度
+                boxs[i].style.left = minBoxIndex * boxWidth +'px'; 
+                //关键:更新最矮盒子的高度
+                heightArr[minBoxIndex] += boxHeight;
+            } 
+        }
+    }
+    function getIndex(val, arr) {  
+        for(var i in arr) {    
+            if(val == arr[i]) {      
+                return i;
+            }
+        }
+    }
+    
+    </script>
+</body>
+</html>

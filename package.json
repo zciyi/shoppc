@@ -1,0 +1,15 @@
+{
+  "name": "shoppc",
+  "version": "1.0.0",
+  "description": "Default template for fis scaffold",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fis",
+    "scaffold"
+  ],
+  "author": "ciyi",
+  "dependencies": {}
+}

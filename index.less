@@ -1,0 +1,92 @@
+@import './style.less';
+.P-home{
+    min-width: 768px;
+    margin: 0 auto;
+    &Bar{
+        position: relative;
+        min-height: 300px;
+        .barImg{
+            img{
+                width: 100%;
+            }
+        }
+        .arrow-left{
+            position: absolute;
+            top:50%;
+            left: 40px;
+            width: 40px;
+            height: 40px;
+            border: 1px solid #e8e8e8;
+            -webkit-border-radius: 50%; 
+            -o-border-radius: 50%; 
+            -ms-border-radius: 50%; 
+            border-radius:50%; 
+            -webkit-transform: translate(0,-50%);
+            -o-transform: translate(0,-50%);
+            -ms-transform: translate(0,-50%);
+            transform: translate(0,-50%);
+            &::before{
+                content: "";
+                position: absolute;
+                .arrow-left();
+                left: 50%;
+                top: 50%;
+                margin: -5px 0 0 -4px;
+
+
+                
+            }
+        }
+        .arrow-right{
+            position: absolute;
+            top:50%;
+            right: 40px;
+            width: 40px;
+            height: 40px;
+            border: 1px solid #e8e8e8;
+            -webkit-border-radius: 50%; 
+            -o-border-radius: 50%; 
+            -ms-border-radius: 50%; 
+            border-radius:50%; 
+            -webkit-transform: translate(0,-50%);
+            -o-transform: translate(0,-50%);
+            -ms-transform: translate(0,-50%);
+            transform: translate(0,-50%);
+            &::before{
+                content: "";
+                position: absolute;
+                .arrow-right();
+                left: 50%;
+                top: 50%;
+                margin: -5px 0 0 -7px;
+                
+            }
+        }
+    }
+    &Flow{
+        margin: 60px 80px;
+        &Con{
+            margin-bottom: 60px;
+            overflow: hidden;
+            &>div{
+                float: left;
+                img{
+                    width: 100%;
+                }
+            }
+            .flow-left{
+                padding-right:23px; 
+                box-sizing: border-box;
+                
+            } 
+            .flow-right{
+                padding-left:23px; 
+                box-sizing: border-box;
+            }
+            &:last-child{
+                margin-bottom: 0;
+            }
+
+        }
+    }
+}
