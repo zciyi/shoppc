@@ -36,25 +36,25 @@
         <div class="M-menuNav">
             <ul>
                 <li class="act">
-                    <a>CAMPAIGN</a>
+                    <a href="">CAMPAIGN</a>
                 </li>
                 <li>
-                    <a>COLLECTION</a>
+                    <a href="../src/collection/collection.html">COLLECTION</a>
                 </li>
                 <li>
-                    <a>PROJECT</a>
+                    <a href="../src/project/project.html">PROJECT</a>
                 </li>
                 <li>
-                    <a>PRESS</a>
+                    <a href="../src/press/press.html">PRESS</a>
                 </li>
                 <li>
-                    <a>STORE</a>
+                    <a href="../src/store/store.html">STORE</a>
                 </li>
                 <li>
-                    <a>E-SHOP</a>
+                    <a href="../src/e-shop/e-shop.html">E-SHOP</a>
                 </li>         
                 <li>
-                    <a>ABOUT CARSYDA</a>
+                    <a href="../src/aboutCarsyda/aboutCarsyda.html">ABOUT CARSYDA</a>
                 </li>
             </ul>
         </div>
@@ -70,11 +70,11 @@
                 </div>
                 <div class="P-pressFlowCon">
                     <img src="https://www.moncler.cn/cn/files/2018/08/Box-grande-Puffer-Scratch.jpg" />
-                    <div class="P-pressFlowTitle">1</div>
+                    <div class="P-pressFlowTitle">3</div>
                 </div>
                 <div class="P-pressFlowCon">
                     <img src="https://www.moncler.cn/cn/files/2018/09/BOX-PRODOTTO-CN2-donna-1.jpg"/>
-                    <div class="P-pressFlowTitle">2</div>
+                    <div class="P-pressFlowTitle">4</div>
                 </div>
 
             </div>
@@ -87,6 +87,9 @@
     </div>
     <script type="text/javascript">
     window.onload=function(){
+        waterFall('pressFlow', 'P-pressFlowCon')
+    }
+    window.onresize=function(){
         waterFall('pressFlow', 'P-pressFlowCon')
     }
     function waterFall(main, box) {  
@@ -105,15 +108,13 @@
                 heightArr.push(boxs[i].offsetHeight);     
                 boxs[i].style.top = '0px'; 
                 boxs[i].style.visibility = 'visible'; 
-                boxs[i].style.left = i* boxWidth+(i%cols===1?20:0) +'px';
-            } else {        //求出最矮盒子的高度
+                boxs[i].style.left = i* boxWidth+'px';
+            } else {        
                 var minBoxHeight = Math.min.apply(this, heightArr); 
-                //求出最矮盒子的索引 
                 var minBoxIndex = getIndex(minBoxHeight, heightArr); 
-                boxs[i].style.top = minBoxHeight + 'px'; //顶部间距即最矮盒子的高度
-                boxs[i].style.left = minBoxIndex *boxWidth+(i%cols===1?20:0)  +'px';
+                boxs[i].style.top = minBoxHeight + 'px';
+                boxs[i].style.left = (i%cols===1?1:0) *boxWidth +'px';
                 boxs[i].style.visibility = 'visible';
-                //关键:更新最矮盒子的高度
                 heightArr[minBoxIndex] += boxHeight;
             }         
         }
