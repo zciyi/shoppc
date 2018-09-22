@@ -2,24 +2,29 @@
 .P-press{
     &Flow{
         position: relative;
-        margin: 60px 80px;
+        margin: 40px 80px;
         &Main{
             width: 100%;
+            .P-pressFlowCon{
+                padding-top:30px; 
+                &:nth-child(2n){
+                    padding-left:20px;
+                    box-sizing: border-box; 
+                }
+                &:nth-child(n){
+                    padding-right:20px;
+                    box-sizing: border-box; 
+                }
+
+            }
         }
         &Con{
             position: absolute;
             top: 0;
+            left:0;
             width: 50%;
-            &:nth-child(2n){
-                left: 50%;
-                padding-left:20px;
-                box-sizing: border-box; 
-            }
-            &:nth-child(n){
-                left:0;
-                padding-right:20px;
-                box-sizing: border-box; 
-            }
+            visibility: hidden;
+            
         }
         &Title{
             text-align: center;

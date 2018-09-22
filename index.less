@@ -25,6 +25,7 @@
             -o-transform: translate(0,-50%);
             -ms-transform: translate(0,-50%);
             transform: translate(0,-50%);
+            background: none;
             &::before{
                 content: "";
                 position: absolute;
@@ -52,6 +53,7 @@
             -o-transform: translate(0,-50%);
             -ms-transform: translate(0,-50%);
             transform: translate(0,-50%);
+            background: none;
             &::before{
                 content: "";
                 position: absolute;
@@ -61,6 +63,12 @@
                 margin: -5px 0 0 -7px;
                 
             }
+        }
+        .swiper-pagination-bullet{
+            background: rgba(232,232,232, .9);
+        } 
+        .swiper-pagination-bullet-active{
+            background: #c00;
         }
     }
     &Flow{

@@ -94,7 +94,8 @@
         var boxs = main.getElementsByClassName(box);  
         var boxWidth = boxs[0].offsetWidth; //获取每个数据块的宽度
         var mainWidh = main.offsetWidth; //获取主容器的宽度
-        var cols = Math.floor(mainWidh / boxWidth); //计算列数
+        // var cols = Math.floor(mainWidh / boxWidth); //计算列数
+        var cols = 2
     
         var heightArr = []; //定义一个存放 top 值的数组
         for(var i = 0; i < boxs.length; i++) {    
@@ -103,17 +104,21 @@
             if(i < cols) { //第一行  
                 heightArr.push(boxs[i].offsetHeight);     
                 boxs[i].style.top = '0px'; 
-                boxs[i].style.left = i * boxWidth +'px';
+                boxs[i].style.visibility = 'visible'; 
+                boxs[i].style.left = i* boxWidth+(i%cols===1?20:0) +'px';
             } else {        //求出最矮盒子的高度
                 var minBoxHeight = Math.min.apply(this, heightArr); 
                 //求出最矮盒子的索引 
                 var minBoxIndex = getIndex(minBoxHeight, heightArr); 
                 boxs[i].style.top = minBoxHeight + 'px'; //顶部间距即最矮盒子的高度
-                boxs[i].style.left = minBoxIndex * boxWidth +'px'; 
+                boxs[i].style.left = minBoxIndex *boxWidth+(i%cols===1?20:0)  +'px';
+                boxs[i].style.visibility = 'visible';
                 //关键:更新最矮盒子的高度
                 heightArr[minBoxIndex] += boxHeight;
-            } 
+            }         
         }
+        var maxBoxHeight = Math.max.apply(this, heightArr); 
+        main.style.height =maxBoxHeight+'px';
     }
     function getIndex(val, arr) {  
         for(var i in arr) {    
