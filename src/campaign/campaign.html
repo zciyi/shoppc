@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1;" />
+    <meta name="renderer" content="webkit">
+    <title>campaign</title>
+    <link rel="stylesheet" type="text/css" href="../campaign/campaign.less?__inline">
+</head>
+<body>
+    <!-- 
+        url("https://www.moncler.cn/cn/files/2018/09/foglia-interna-desktop.jpg")
+ project 
+  列表（参考moncler genius页）
+   详情页 列表（视频或者图片），自动播放第一个视频 
+   配置的文字（黑色或者白色）
+ press 
+  列表（参考moncler genius页）
+   详情页 列表（视频或者图片），自动播放第一个视频
+   配置的文字（黑色或者白色）
+ store
+  列表
+ E-shop 和上次一样
+
+ ABOUT CARSYDA
+  图片列表
+
+每页底部
+ 参考moco
+-->
+    <div class="P-campaign">
+        <div class="M-menuNav">
+            <ul>
+                <li class="act">
+                    <a href="../campaign/campaign.html">CAMPAIGN</a>
+                </li>
+                <li>
+                    <a href="../collection/collection.html">COLLECTION</a>
+                </li>
+                <li>
+                    <a href="../project/project.html">PROJECT</a>
+                </li>
+                <li>
+                    <a href="../press/press.html">PRESS</a>
+                </li>
+                <li>
+                    <a href="../store/store.html">STORE</a>
+                </li>
+                <li>
+                    <a href="../e-shop/e-shop.html">E-SHOP</a>
+                </li>         
+                <li>
+                    <a href="../aboutCarsyda/aboutCarsyda.html">ABOUT CARSYDA</a>
+                </li>
+            </ul>
+        </div>
+        <div class="P-campaignFlow" >
+            <div class="P-campaignFlowMain" id ="campaignFlow">
+                <div class="P-campaignFlowCon" th:each="dat,iterStat : ${d}" th:onclick = "'goto('+${d.id}+')'"><!-- 跳转自己写 -->
+                    <img th:src="${d.picture}" th:if="${d.mediaType ==1}"/>
+                    <!-- 视频自己写 -->
+                    <div class="P-campaignFlowTitle" th:text="${d.title}"></div>
+                </div>
+
+            </div>
+        </div>
+        <div class="M-botom">
+            <div class="M-botomText">点我</div>
+            <div class="M-botomText"> 点我</div>
+            <div class="M-botomImg"><img src="https://www.moncler.cn/cn/files/2018/09/BOX-PRODOTTO-CN2-donna-1.jpg" /></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    window.onload=function(){
+        waterFall('campaignFlow', 'P-campaignFlowCon')
+    }
+    window.onresize=function(){
+        waterFall('campaignFlow', 'P-campaignFlowCon')
+    }
+    function waterFall(main, box) {  
+        var main = document.getElementById(main);  
+        var boxs = main.getElementsByClassName(box);  
+        var boxWidth = boxs[0].offsetWidth; //获取每个数据块的宽度
+        var mainWidh = main.offsetWidth; //获取主容器的宽度
+        // var cols = Math.floor(mainWidh / boxWidth); //计算列数
+        var cols = 2
+    
+        var heightArr = []; //定义一个存放 top 值的数组
+        for(var i = 0; i < boxs.length; i++) {    
+            var boxHeight = boxs[i].offsetHeight;
+                  
+            if(i < cols) { //第一行  
+                heightArr.push(boxs[i].offsetHeight);     
+                boxs[i].style.top = '0px'; 
+                boxs[i].style.visibility = 'visible'; 
+                boxs[i].style.left = i* boxWidth+'px';
+            } else {        
+                var minBoxHeight = Math.min.apply(this, heightArr); 
+                var minBoxIndex = getIndex(minBoxHeight, heightArr); 
+                boxs[i].style.top = minBoxHeight + 'px';
+                boxs[i].style.left = (i%cols===1?1:0) *boxWidth +'px';
+                boxs[i].style.visibility = 'visible';
+                heightArr[minBoxIndex] += boxHeight;
+            }         
+        }
+        var maxBoxHeight = Math.max.apply(this, heightArr); 
+        main.style.height =maxBoxHeight+'px';
+    }
+    function getIndex(val, arr) {  
+        for(var i in arr) {    
+            if(val == arr[i]) {      
+                return i;
+            }
+        }
+    }
+    
+    </script>
+</body>
+</html>
