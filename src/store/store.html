@@ -39,7 +39,15 @@
         </div>
         <div class="P-storeMain">
             <ul>
-                <li>
+                <li th:each="dat,iterStat : ${d}">
+                    <div th:attrappend="style=${'background:url(' + d.picture+';) no-repeat #e8e8e8;background-size: contain;'}">
+                        手机号：<span th:text="${d.phone}"></span><br>
+                        省份：<span th:text="${d.provice}"></span><br>
+                        地址：<span th:text="${d.address}"></span><br>
+                        商场：<span th:text="${d.market}"></span><br>
+                    </div>
+                </li>
+                <!-- <li>
                     <div style="background:url(https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1813042801,585325064&fm=26&gp=0.jpg) no-repeat #e8e8e8;background-size: contain;">
                         手机号：12324234<br>
                         省份：12324234<br>
@@ -70,15 +78,7 @@
                         地址：12324234<br>
                         商场：12324234<br>
                     </div>
-                </li>
-                <li>
-                    <div style="background:url(https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo_top_86d58ae1.png) no-repeat #e8e8e8;background-size: contain;">
-                        手机号：12324234<br>
-                        省份：12324234<br>
-                        地址：12324234<br>
-                        商场：12324234<br>
-                    </div>
-                </li>
+                </li> -->
             </ul>
 
         </div>

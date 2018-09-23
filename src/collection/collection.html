@@ -41,12 +41,9 @@
         <div class="P-collectionBar">
             <div class="P-collectionBarMain swiper-container">
                 <div class="arrow-left swiper-button-prev"></div>
-                <div class="swiper-wrapper">
-                    <div class="barImg swiper-slide">
-                        <img src="https://www.moncler.cn/cn/files/2018/09/slider-desktop-template-SIMONEROCHA-CN-1.jpg"/>
-                    </div>
-                    <div class="barImg swiper-slide">
-                        <img src="https://www.moncler.cn/cn/files/2018/09/slider-desktop-template-SIMONEROCHA-CN-1.jpg"/>
+                <div class="swiper-wrapper" th:onclick = "'goto('+${d.link}+')'"><!-- 跳转对应页面自己写-->
+                    <div class="barImg swiper-slide" th:each="dat,iterStat : ${d}">
+                        <img th:src="${d.picture}" />
                     </div>
                 </div>
                 <div class="swiper-pagination"></div>

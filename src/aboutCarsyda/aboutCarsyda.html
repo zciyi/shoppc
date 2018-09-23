@@ -39,19 +39,9 @@
         </div>
         <div class="P-aboutCarsydaFlow" >
             <div class="P-aboutCarsydaFlowMain" id ="aboutCarsydaFlow">
-                <div class="P-aboutCarsydaFlowCon">
-                    <img src="https://www.moncler.cn/cn/files/2018/08/Box-grande-Puffer-Scratch.jpg" />
+                <div class="P-aboutCarsydaFlowCon" th:each="dat,iterStat : ${d}" th:onclick = "'goto('+${d.link}+')'"><!-- 跳转对应页面自己写-->
+                    <img th:src="${d.picture}" />
                 </div>
-                <div class="P-aboutCarsydaFlowCon">
-                    <img src="https://www.moncler.cn/cn/files/2018/09/BOX-PRODOTTO-CN2-donna-1.jpg"/>
-                </div>
-                <div class="P-aboutCarsydaFlowCon">
-                    <img src="https://www.moncler.cn/cn/files/2018/08/Box-grande-Puffer-Scratch.jpg" />
-                </div>
-                <div class="P-aboutCarsydaFlowCon">
-                    <img src="https://www.moncler.cn/cn/files/2018/09/BOX-PRODOTTO-CN2-donna-1.jpg"/>
-                </div>
-
             </div>
         </div>
         <div class="M-botom">
