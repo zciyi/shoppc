@@ -59,21 +59,10 @@
         </div>
         <div class="P-pressFlow" >
             <div class="P-pressFlowMain" id ="pressFlow">
-                <div class="P-pressFlowCon">
-                    <img src="https://www.moncler.cn/cn/files/2018/08/Box-grande-Puffer-Scratch.jpg" />
-                    <div class="P-pressFlowTitle">1</div>
-                </div>
-                <div class="P-pressFlowCon">
-                    <img src="https://www.moncler.cn/cn/files/2018/09/BOX-PRODOTTO-CN2-donna-1.jpg"/>
-                    <div class="P-pressFlowTitle">2</div>
-                </div>
-                <div class="P-pressFlowCon">
-                    <img src="https://www.moncler.cn/cn/files/2018/08/Box-grande-Puffer-Scratch.jpg" />
-                    <div class="P-pressFlowTitle">3</div>
-                </div>
-                <div class="P-pressFlowCon">
-                    <img src="https://www.moncler.cn/cn/files/2018/09/BOX-PRODOTTO-CN2-donna-1.jpg"/>
-                    <div class="P-pressFlowTitle">4</div>
+                <div class="P-pressFlowCon" th:each="dat,iterStat : ${d}" th:onclick = "'goto('+${d.id}+')'"><!-- 跳转自己写 -->
+                    <img th:src="${d.picture}" th:if="${d.mediaType ==1}"/>
+                    <!-- 视频自己写 -->
+                    <div class="P-pressFlowTitle" th:text="${d.title}"></div>
                 </div>
 
             </div>

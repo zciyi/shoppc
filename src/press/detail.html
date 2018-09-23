@@ -57,19 +57,12 @@
                 </li>
             </ul>
         </div>
+        <div class="P-pressDetailTitle"  th:text="${dat.title}"></div>
         <div class="P-pressDetailFlow" >
             <div class="P-pressDetailFlowMain" id ="pressFlowDetail">
-                <div class="P-pressDetailFlowCon">
-                    <img src="https://www.moncler.cn/cn/files/2018/08/Box-grande-Puffer-Scratch.jpg" />
-                </div>
-                <div class="P-pressDetailFlowCon">
-                    <img src="https://www.moncler.cn/cn/files/2018/08/Box-grande-Puffer-Scratch.jpg" />
-                </div>
-                <div class="P-pressDetailFlowCon">
-                    <img src="https://www.moncler.cn/cn/files/2018/08/Box-grande-Puffer-Scratch.jpg" />
-                </div>
-                <div class="P-pressDetailFlowCon">
-                    <img src="https://www.moncler.cn/cn/files/2018/08/Box-grande-Puffer-Scratch.jpg" />
+                <div class="P-pressDetailFlowCon" th:each="dat.medias,iterStat : ${d}">
+                    <img th:src="${d.picture}" th:if="${d.mediaType ==1}" />
+                    <!-- 视频自己写 -->
                 </div>
 
             </div>
