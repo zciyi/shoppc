@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1;" />
+    <meta name="renderer" content="webkit">
+    <title>Store</title>
+    <script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&key=4CYBZ-CCJ3X-C274F-ZTRFV-JUJ6V-5BBWX"></script>
+
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+    </script>
+
+    <style>
+        .P-storeMainSelect {
+            text-align: center;
+        }
+        
+        .P-storeMainSelect select {
+            padding: 3px 0;
+            width: 80px;
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            border: none;
+            background: transparent;
+            border-radius: 0;
+            border-bottom: 1px solid #000;
+            outline: none;
+        }
+        
+        .listmap {
+            height: 400px;
+        }
+        
+        #content {
+            width: 70%;
+            margin: 30px auto 0 auto;
+        }
+        
+        #searchDat {
+            border: none;
+            background: #000;
+            border-radius: 4px;
+            color: #fff;
+            padding: 4px 20px;
+            outline: none;
+        }
+        
+        .localLength {
+            position: absolute;
+            right: 0;
+            top: 4px;
+        }
+        
+        .listMain {
+            margin-bottom: 10px;
+        }
+        
+        .listCon {
+            position: relative;
+            padding: 10px 0;
+            border-bottom: 1px solid #000;
+        }
+        
+        .closebtn {
+            color: cornflowerblue;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="./store.js"></script>
+    <script>
+        window.onload = function() {
+            //this.defAct();
+        }
+    </script>
+    <div class="P-store">
+
+        <div class="P-storeMain">
+            <div class="P-storeMainSelect">
+                <select id="province"></select>
+                <select id="city"></select>
+                <select id="district"></select>
+                <button id="searchDat">搜索</button>
+            </div>
+
+            <div id="content">
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
