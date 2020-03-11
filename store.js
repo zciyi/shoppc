@@ -1,12 +1,18 @@
 var biserver = "http://smallfries.cn"
-
+var keyVal = "4CYBZ-CCJ3X-C274F-ZTRFV-JUJ6V-5BBWX"
+var referer = "门店-web端"
+var linkto = "https://3gimg.qq.com/lightmap/components/locationCluster/index.html?"
 var localMap = null
 var localDat = {}
 $(document).ready(function() {
     function getArea(id, cb) {
-        $.get(biserver + "/common/region/list", {
-            parentId: id
-        }, function(data, status) {
+        var query = {}
+        if (id) {
+            query = {
+                parentId: id
+            }
+        }
+        $.get(biserver + "/common/region/list", query, function(data, status) {
             if (data && data.code == 0) {
                 cb(data.result)
             }
@@ -83,7 +89,7 @@ $(document).ready(function() {
             $("#close" + d.id).click(function() {
                 $("#mapCon" + d.id).hide();
             });
-            initMap("map" + d.id, d.lat, d.lon)
+            initMap("map" + d.id, d.lat, d.lon, d)
             if (localDat.lat && localDat.lng) {
                 var localLength = getDistance(localDat.lat, localDat.lng, d.lat, d.lon)
                 var realLength = tipMi(parseInt(localLength || 0))
@@ -122,7 +128,7 @@ $(document).ready(function() {
         localMap.searchLocalCity();
     }
 
-    function initMap(id, lat, lon) {
+    function initMap(id, lat, lon, dat) {
 
         //获取地图显示控件
         var pos = new qq.maps.LatLng(lat, lon)
@@ -132,11 +138,34 @@ $(document).ready(function() {
             center: pos,
             zoom: 13
         });
-        map.market = new qq.maps.Marker({
+        map.marker = new qq.maps.Marker({
             "map": map,
             position: pos,
             "animation": qq.maps.MarkerAnimation.DROP
         })
+        var info = new qq.maps.InfoWindow({
+            map: map
+        });
+        qq.maps.event.addListener(map.marker, 'click', function(e) {
+            info.open();
+            let localpath = dat ? ((dat.provice || '') + (dat.city || '') + (dat.district || '') + (dat.address || '')) : ''
+            dat.localpath = localpath;
+            info.setContent("<div>" + localpath + "</div><a class='linkto' href='javascript:handleClick(" + JSON.stringify(dat) + ")'>去这里</a>");
+            info.setPosition(pos);
+
+
+        })
+
     }
 
 });
+
+function handleClick(obj) {
+    if (obj) {
+        var urlto = linkto + "type=0&" + "marker=coord:" + obj.lat + ',' + obj.lon + ";title:" + obj.localpath + ";addr:" + obj.localpath + "&keyword=" + (obj.localpath || '') + "&key=" + keyVal + "&referer=" + referer;
+        window.open(
+            urlto
+        )
+    }
+
+}
